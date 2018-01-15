@@ -25,6 +25,7 @@ const RecordFilter = ({ ...props }) => (
         <TextInput label="Last Name" source="last_name" />
         <DateInput label="Birthday" source="date" />
         <TextInput label="Phone Number" source="phone_number" />
+        <TextInput label="Search" source="q" alwaysOn />
     </Filter>
 );
 
