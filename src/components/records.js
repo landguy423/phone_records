@@ -16,7 +16,8 @@ import {
     required,
     ToolbarGroup,
     SaveButton,
-    Toolbar
+    Toolbar,
+    regex,
 } from 'admin-on-rest'; // eslint-disable-line import/no-unresolved
 
 const titleFieldStyle = {
@@ -65,7 +66,7 @@ export const RecordCreate = ({ ...props }) => (
             <TextInput source="first_name" style={titleFieldStyle} validate={required} />
             <TextInput source="last_name" style={titleFieldStyle} validate={required} />
             <DateInput source="birthday" defaultValue={() => new Date()} />
-            <TextInput source="phone_number" style={titleFieldStyle} validate={required} />
+            <TextInput source="phone_number" style={titleFieldStyle} validate={[required, regex(/^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/, "format should be (111-222-3333)")]} />
         </SimpleForm>
     </Create>
 );
@@ -81,7 +82,7 @@ export const RecordEdit = ({ ...props }) => (
             <TextInput source="first_name" style={titleFieldStyle} validate={required} />
             <TextInput source="last_name" style={titleFieldStyle} validate={required} />
             <DateInput source="birthday" />
-            <TextInput source="phone_number" style={titleFieldStyle} validate={required} />
+            <TextInput source="phone_number" style={titleFieldStyle} validate={[required, regex(/^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/, "format should be (111-222-3333)")]} />
         </SimpleForm>
     </Edit>
 );
