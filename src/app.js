@@ -17,7 +17,7 @@ const App = () => (
         title="Phone Number List"
     >
         <Resource
-            name="list"
+            name="phone"
             list={RecordList}
             create={RecordCreate}
             edit={RecordEdit}

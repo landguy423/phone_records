@@ -14,6 +14,9 @@ import {
     TextField,
     TextInput,
     required,
+    ToolbarGroup,
+    SaveButton,
+    Toolbar
 } from 'admin-on-rest'; // eslint-disable-line import/no-unresolved
 
 const RecordFilter = ({ ...props }) => (
@@ -49,9 +52,15 @@ export const RecordList = ({ ...props }) => (
     </List>
 );
 
+const CreateToolbar = props => (
+    <Toolbar {...props}>
+        <SaveButton redirect="list" />
+    </Toolbar>
+);
+
 export const RecordCreate = ({ ...props }) => (
-    <Create {...props}>
-        <SimpleForm>
+    <Create {...props} redirect="list">
+        <SimpleForm toolbar={<CreateToolbar />} >
             <TextInput source="first_name" style={titleFieldStyle} validate={required} />
             <TextInput source="last_name" style={titleFieldStyle} validate={required} />
             <DateInput source="birthday" defaultValue={() => new Date()} />

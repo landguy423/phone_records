@@ -1,5 +1,5 @@
 export default {
-    list: [
+    phone: [
         {
             id: 1,
             first_name: 'Bash',
