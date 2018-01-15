@@ -19,6 +19,13 @@ import {
     Toolbar
 } from 'admin-on-rest'; // eslint-disable-line import/no-unresolved
 
+const titleFieldStyle = {
+    maxWidth: '20em',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+};
+
 const RecordFilter = ({ ...props }) => (
     <Filter {...props}>
         <TextInput label="First Name" source="first_name" />
@@ -28,13 +35,6 @@ const RecordFilter = ({ ...props }) => (
         <TextInput label="Search" source="q" alwaysOn />
     </Filter>
 );
-
-const titleFieldStyle = {
-    maxWidth: '20em',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-};
 
 export const RecordList = ({ ...props }) => (
     <List
